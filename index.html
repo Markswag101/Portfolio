@@ -446,6 +446,47 @@
 
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* PROJECT IMAGE CAROUSEL */
+    .project-carousel {
+      width: 100%; height: 220px;
+      border-radius: 8px; overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      position: relative;
+      background: #e8edf5;
+    }
+    .carousel-slides {
+      display: flex; height: 100%;
+      transition: transform 0.4s ease;
+    }
+    .carousel-slides img {
+      min-width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      flex-shrink: 0;
+    }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s; z-index: 2; padding: 0;
+      color: var(--gold);
+    }
+    .carousel-btn:hover { background: #fff; }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+    .carousel-dots {
+      position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 5px;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.5); border: none; cursor: pointer;
+      padding: 0; transition: background 0.2s;
+    }
+    .carousel-dot.active { background: #fff; }
   </style>
 </head>
 <body>
@@ -639,13 +680,27 @@
     <div class="projects-grid">
 
       <div class="project-card reveal">
+        <div class="project-carousel" id="carousel-leo">
+          <div class="carousel-slides" id="slides-leo">
+            <img src="IMG_3498.png" alt="LEO Smart Banking Assistant" loading="lazy" />
+            <img src="IMG_3499.png" alt="LEO 20 African Countries" loading="lazy" />
+            <img src="IMG_3500.png" alt="LEO Platform Stats" loading="lazy" />
+          </div>
+          <button class="carousel-btn prev" onclick="slideCarousel('leo',-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="slideCarousel('leo',1)">&#8250;</button>
+          <div class="carousel-dots" id="dots-leo">
+            <button class="carousel-dot active" onclick="goToSlide('leo',0)"></button>
+            <button class="carousel-dot" onclick="goToSlide('leo',1)"></button>
+            <button class="carousel-dot" onclick="goToSlide('leo',2)"></button>
+          </div>
+        </div>
         <span class="project-tag">Pan-African · AI Banking · UBA</span>
         <h3 class="project-title">LEO WhatsApp Banking Platform</h3>
         <p class="project-desc">End-to-end TPM ownership of UBA's AI-powered conversational banking chatbot. Delivered across 20 African markets in 12 months, enabling account enquiries, transfers, bill payments, and customer onboarding via WhatsApp, Facebook Messenger, and Instagram.</p>
         <div class="project-metrics">
           <div class="metric"><span class="m-val">20</span><span class="m-label">Countries</span></div>
           <div class="metric"><span class="m-val">12mo</span><span class="m-label">Delivery</span></div>
-          <div class="metric"><span class="m-val">6</span><span class="m-label">Teams Coordinated</span></div>
+          <div class="metric"><span class="m-val">3M+</span><span class="m-label">Users</span></div>
         </div>
         <a href="https://www.ubagroup.com/nigeria/personal-banking/digital-banking/chat-with-leo/" target="_blank" rel="noopener" class="project-link">
           View Live Platform
@@ -654,6 +709,22 @@
       </div>
 
       <div class="project-card reveal">
+        <div class="project-carousel" id="carousel-specta">
+          <div class="carousel-slides" id="slides-specta">
+            <img src="IMG_3494.jpeg" alt="Specta Improved Mobile Interface" loading="lazy" />
+            <img src="IMG_3495.jpeg" alt="Specta Manage Loans" loading="lazy" />
+            <img src="IMG_3496.jpeg" alt="Specta Live Credit Score" loading="lazy" />
+            <img src="IMG_3497.jpeg" alt="Specta Global Limit Assignment" loading="lazy" />
+          </div>
+          <button class="carousel-btn prev" onclick="slideCarousel('specta',-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="slideCarousel('specta',1)">&#8250;</button>
+          <div class="carousel-dots" id="dots-specta">
+            <button class="carousel-dot active" onclick="goToSlide('specta',0)"></button>
+            <button class="carousel-dot" onclick="goToSlide('specta',1)"></button>
+            <button class="carousel-dot" onclick="goToSlide('specta',2)"></button>
+            <button class="carousel-dot" onclick="goToSlide('specta',3)"></button>
+          </div>
+        </div>
         <span class="project-tag">Digital Lending · Sterling Bank</span>
         <h3 class="project-title">Specta Platform Suite</h3>
         <p class="project-desc">Programme leadership for the full Specta consumer app and web platform rebuild, plus simultaneous delivery of Specta Xtreme, Specta Basic, and Business Support Facility 2.0 — all on schedule across a 9-month programme.</p>
@@ -669,6 +740,20 @@
       </div>
 
       <div class="project-card reveal">
+        <div class="project-carousel" id="carousel-omni">
+          <div class="carousel-slides" id="slides-omni">
+            <img src="IMG_3491.jpeg" alt="UBA App Spending Insights" loading="lazy" />
+            <img src="IMG_3492.jpeg" alt="UBA App Current Account" loading="lazy" />
+            <img src="IMG_3493.jpeg" alt="UBA App Multi-Language" loading="lazy" />
+          </div>
+          <button class="carousel-btn prev" onclick="slideCarousel('omni',-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="slideCarousel('omni',1)">&#8250;</button>
+          <div class="carousel-dots" id="dots-omni">
+            <button class="carousel-dot active" onclick="goToSlide('omni',0)"></button>
+            <button class="carousel-dot" onclick="goToSlide('omni',1)"></button>
+            <button class="carousel-dot" onclick="goToSlide('omni',2)"></button>
+          </div>
+        </div>
         <span class="project-tag">Omni-Channel · UBA</span>
         <h3 class="project-title">UBA Omni-Channel Banking Platform</h3>
         <p class="project-desc">18-month programme delivering a unified banking experience across mobile, web, USSD, and internet banking channels for millions of UBA customers across Africa. Coordinated 6 cross-functional teams from discovery through go-live.</p>
@@ -825,6 +910,30 @@
         a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
       });
     });
+
+    // Carousel logic
+    const carouselState = {};
+    function initCarousel(id, total) {
+      carouselState[id] = { current: 0, total };
+    }
+    function goToSlide(id, index) {
+      const state = carouselState[id];
+      if (!state) return;
+      state.current = index;
+      document.getElementById('slides-' + id).style.transform = 'translateX(-' + (index * 100) + '%)';
+      document.querySelectorAll('#dots-' + id + ' .carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === index);
+      });
+    }
+    function slideCarousel(id, dir) {
+      const state = carouselState[id];
+      if (!state) return;
+      let next = (state.current + dir + state.total) % state.total;
+      goToSlide(id, next);
+    }
+    initCarousel('leo', 3);
+    initCarousel('specta', 4);
+    initCarousel('omni', 3);
   </script>
 </body>
 </html>
